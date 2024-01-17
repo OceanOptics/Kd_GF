@@ -9,8 +9,8 @@ Inputs are the following from Standard Level 2 Ocean Color Sensor:
 - wavelength of reference for angstrom coefficient 
 
 Ancillary inputs needed (Can be downloaded from MERRA or in L1-L2 processing line) : 
-Scattering Efficiency at 550 nm : TOTSCATAU; 
-Extinction Efficiency at 550 nm : TOTEXTTAU;
-Atmospheric Pressure : PS;
+- Scattering Efficiency at 550 nm : TOTSCATAU; 
+- Extinction Efficiency at 550 nm : TOTEXTTAU;
+- Atmospheric Pressure : PS;
 
 The code needsthe sun_position_GB.m function to compute solar angle in atmosphere.

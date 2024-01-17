@@ -1,7 +1,17 @@
-% Kd algorithm for PACE 
+% Hyperspectral analytical Kd algorithm to use with Ocean Color sensor. 
+
+%This code will take IOPs retrieved from Rrs (not done here but see if
+% needs to beimplemented) and compute Kd(lamda) using ancillary data. 
+
+% First characterized in Begouen Demeaux et al., 2024 
+% Code Version  : CBD, January 2024
+
+%  ---------------------------------------------------------------
 
 % Requires the following inputs that are listed below: 
 %[TOTSCATAU,TOTEXTTAU,PS,a_aer,TOTANGSTR,wv_ang,lambda,sat_dt,lat,lon,a,bb]
+
+% ---------- Input List ------------------------------------------
 
 % ---Ancillary data ----
 % Scattering Efficiency at 550 nm : TOTSCATAU; 

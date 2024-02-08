@@ -6,7 +6,8 @@ Inputs are the following from Standard Level 2 Ocean Color Sensor:
 - a & bb retrieved from IOP inversion such as QAA.
 - datetime of rrs measurement
 - Latitude & longitude of rrs pixel
-- wavelength of reference for angstrom coefficient 
+- wavelength of reference for angstrom coefficient
+- angstrom coefficient
 
 Ancillary inputs needed (Can be downloaded from MERRA or in L1-L2 processing line) : 
 - Scattering Efficiency at 550 nm : TOTSCATAU; 

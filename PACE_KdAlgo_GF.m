@@ -18,13 +18,14 @@
 % Extinction Efficiency at 550 nm : TOTEXTTAU;
 % Atmospheric Pressure : PS;
 % Anisotropy of phase function (Constant): a_aer;
+% Aerosol optical thisckness : tau_aer_ref;
 a_aer = 0.67;
 % Inputs for Tau mol calculation(Constant)
 A = 85.35 *10^-4; B = -1.225 * 10^-4; C = 1.40 * 10^-4;
 
 % --Level 2 data OR Ancillary Data ---
 % Angstrom coefficient : TOTANGSTR;
-% Reference wavelength for the Angstrom coefficient: wv_ang;
+% Reference wavelength for the Aerosol optical thickness: wv_ang;
 % wavelength of interest: lambda;
 % Datetime of satellite overpass : sat_dt;
 % Latitude of pixel : lat;
@@ -46,11 +47,11 @@ tau_mol = (A./(lambda*10^-3)^4 )+ B./(lambda*10^-3)^5 +C/(lambda*10^-3)^6 *...
               PS*10^-2./1013.25;
 
 %  Aerosols optical thickness : Tau aer 
-tau_aer = TOTANGSTR .* (wv_ang/lambda).^ -TOTANGSTR;
+tau_aer = tau_aer_ref .* (wv_ang/lambda).^ -TOTANGSTR;
           
-%  Single Scattering Albedo : SSA_lambda
+%  Single Scattering Albedo : SSA_lambda % Constant for now
 SSA_550 = TOTSCATAU / TOTEXTTAU;
-SSA_lambda =  SSA_550 .* (550./lambda).^ -TOTANGSTR;
+SSA_lambda =  SSA_550;
 
 % ----------- Computation of f ------------------------------------------
 
@@ -70,5 +71,3 @@ f_lambda = t_dir./t_tot;
 D0_lambda = f_lambda./cos(theta_water) + 1.197 *(1 - f_lambda);
 
 Kd_lambda = (a_lambda + bb_lambda).* D0_lambda; 
-
-
